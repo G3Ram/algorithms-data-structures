@@ -2,14 +2,14 @@ export default function bs_list(haystack: number[], needle: number): boolean {
     if (haystack.length === 0) return false;
     let hi = haystack.length;
     let lo = 0;
-    let m;
 
     while (lo < hi) {
-        m = lo + Math.floor((hi-lo)/2)
-        if (haystack[m] ===  needle) return true;
-        if (haystack[m] > needle) {
+        let m = lo + Math.floor((hi-lo)/2);
+        let v = haystack[m];
+        if (v ===  needle) return true;
+        if (v > needle) {
             hi = m;
-        } else if (haystack[m] < needle) {
+        } else if (v < needle) {
             lo = m+1;
         }
     }
